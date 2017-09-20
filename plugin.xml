@@ -26,12 +26,12 @@
             <uses-feature android:name="android.hardware.camera.front" android:required="true"/>
             <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="true"/>
         </config-file>
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <!-- <config-file target="AndroidManifest.xml" parent="/manifest/application">
           <activity
              android:name="edu.cmu.pocketsphinx.demo.wear.WearActivity"
              android:label="PocketSphinx">
           </activity>
-        </config-file>
+        </config-file> -->
                      <!-- android:theme="@android:style/Theme.Translucent" -->
                  <!-- android:configChanges="keyboardHidden|keyboard|screenSize|locale" -->
         <framework src="libs/aar/build-extras.gradle" custom="true" type="gradleReference" />
