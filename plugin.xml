@@ -28,11 +28,11 @@
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
           <activity
-             android:theme="@android:style/Theme.Translucent"
              android:name="edu.cmu.pocketsphinx.demo.wear.WearActivity"
              android:label="PocketSphinx">
           </activity>
         </config-file>
+                     <!-- android:theme="@android:style/Theme.Translucent" -->
                  <!-- android:configChanges="keyboardHidden|keyboard|screenSize|locale" -->
         <framework src="libs/aar/build-extras.gradle" custom="true" type="gradleReference" />
         <!-- <source-file src="libs/aar/build-extras.gradle" target-dir="." /> -->
