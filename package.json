@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-vad",
+  "version": "1.0.0",
+  "cordova": {
+    "id": "cordova-plugin-vad",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

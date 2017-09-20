@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+      id="cordova-plugin-vad"
+      version="3.0.0">
+    <name>VAD</name>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VoiceActivity">
+                <param name="android-package" value="edu.cmu.pocketsphinx.demo.wear.VoiceActivity"/>
+            </feature>
+        </config-file>
+        <js-module src="www/VoiceActivityDetector.js" name="VoiceActivityDetector">
+            <clobbers target="cordova.plugins.vad" />
+        </js-module>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT"/>
+            <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
+            <uses-feature android:name="android.hardware.camera" android:required="true"/>
+            <uses-feature android:name="android.hardware.camera.autofocus" android:required="true"/>
+            <uses-feature android:name="android.hardware.camera.front" android:required="true"/>
+            <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="true"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <activity
+             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+             android:name="edu.cmu.pocketsphinx.demo.wear.WearActivity"
+             android:configChanges="keyboardHidden|keyboard|screenSize|locale"
+             android:label="PocketSphinx">
+          </activity>
+        </config-file>
+        <source-file src="libs/aar/build-vad.gradle" target-dir="." />
+        <!-- <resource-file src="libs/aar/models-release.aar" target="libs/models-release.aar" />
+        <resource-file src="libs/aar/wear-debug.aar" target="libs/wear-debug.aar" />
+        <resource-file src="libs/aar/pocketsphinx-android-5prealpha-release.aar" target="libs/pocketsphinx-android-5prealpha-release.aar" /> -->
+        <resource-file src="libs/aar/.." target="libs/vad" />
+        <source-file src="src/android/VoiceActivity.java" target-dir="src/edu/cmu/pocketsphinx/demo/wear" />
+
+
+
+     </platform>
+</plugin>
