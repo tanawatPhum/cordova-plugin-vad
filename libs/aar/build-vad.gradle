@@ -1,5 +1,5 @@
 dependencies {
-    compile project(name: ':vad')
+    compile project(name: 'vad')
     // compile (name: 'pocketsphinx-android-5prealpha-release', ext: 'aar')
     // compile (name: 'models-release', ext: 'aar')
 }
