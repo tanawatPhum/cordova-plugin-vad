@@ -35,10 +35,10 @@
           </activity>
         </config-file>
         <source-file src="libs/aar/build-vad.gradle" target-dir="." />
-        <!-- <resource-file src="libs/aar/models-release.aar" target="libs/models-release.aar" />
+        <resource-file src="libs/aar/models-release.aar" target="libs/models-release.aar" />
         <resource-file src="libs/aar/wear-debug.aar" target="libs/wear-debug.aar" />
-        <resource-file src="libs/aar/pocketsphinx-android-5prealpha-release.aar" target="libs/pocketsphinx-android-5prealpha-release.aar" /> -->
-        <resource-file src="libs/aar/.." target="libs/vad" />
+        <resource-file src="libs/aar/pocketsphinx-android-5prealpha-release.aar" target="libs/pocketsphinx-android-5prealpha-release.aar" />
+        <!-- <resource-file src="libs/aar/.." target="libs/vad" /> -->
         <source-file src="src/android/VoiceActivity.java" target-dir="src/edu/cmu/pocketsphinx/demo/wear" />
 
 
