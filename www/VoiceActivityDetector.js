@@ -7,6 +7,7 @@
 
 var VoiceActivity = function() {
 	var startDectection = function(state,success, error) {
+		console.log("vad javascipt side");
 		if (cordova.exec)
 			cordova.exec(success, error, 'VoiceActivity', 
 			   'process',[state]);
