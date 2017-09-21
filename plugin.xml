@@ -7,13 +7,12 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="VoiceActivity">
-                <param name="android-package" value="edu.cmu.pocketsphinx.demo.wear.VoiceActivity"/>
+                <param name="android-package" value="tanawat.voice.VoiceActivity"/>
             </feature>
         </config-file>
         <js-module src="www/VoiceActivityDetector.js" name="VoiceActivityDetector">
             <clobbers target="cordova.plugins.vad" />
         </js-module>
-
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
             <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -29,20 +28,21 @@
         <!-- <config-file target="AndroidManifest.xml" parent="/manifest/application">
           <activity
              android:name="edu.cmu.pocketsphinx.demo.wear.WearActivity"
-             android:label="PocketSphinx">
+             android:label="PocketSphinx"
+             android:theme="@android:style/Theme.NoDisplay"
+             android:configChanges="keyboardHidden|keyboard|screenSize|locale"
+             >
           </activity>
         </config-file> -->
-                     <!-- android:theme="@android:style/Theme.Translucent" -->
-                 <!-- android:configChanges="keyboardHidden|keyboard|screenSize|locale" -->
-        <framework src="libs/aar/build-extras.gradle" custom="true" type="gradleReference" />
+        <!-- android:theme="@android:style/Theme.Translucent" -->
+        <!-- android:configChanges="keyboardHidden|keyboard|screenSize|locale" -->
         <!-- <source-file src="libs/aar/build-extras.gradle" target-dir="." /> -->
+        <!--<resource-file src="libs/aar/wear-debug.aar" target="libs/wear-debug.aar" />-->
+        <!-- <resource-file src="libs/aar/." target="libs/vad" /> -->
         <!-- <resource-file src="libs/aar/models-release.aar" target="libs/models-release.aar" />
-        <resource-file src="libs/aar/wear-debug.aar" target="libs/wear-debug.aar" />
         <resource-file src="libs/aar/pocketsphinx-android-5prealpha-release.aar" target="libs/pocketsphinx-android-5prealpha-release.aar" /> -->
+        <framework src="libs/aar/build-extras.gradle" custom="true" type="gradleReference" />
         <resource-file src="libs/aar/." target="libs/vad" />
-        <source-file src="src/android/VoiceActivity.java" target-dir="src/edu/cmu/pocketsphinx/demo/wear" />
-
-
-
+        <source-file src="src/android/VoiceActivity.java" target-dir="src/tanawat/voice" />
      </platform>
 </plugin>
