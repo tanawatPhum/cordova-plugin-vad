@@ -1,6 +1,6 @@
 dependencies {
-    compile (name: 'pocketsphinx-android-5prealpha-release', ext: 'aar')
-    compile (name: 'models-release', ext: 'aar')
+      compile (name: 'pocketsphinx-android-5prealpha-release', ext: 'aar')
+      compile (name: 'models-release', ext: 'aar')
 }
 repositories {
     flatDir{

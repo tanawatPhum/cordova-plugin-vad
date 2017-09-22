@@ -1,4 +1,4 @@
-package tanawat.voice;
+package edu.cmu.pocketsphinx.demo.wear;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
