@@ -33,6 +33,7 @@ public class VoiceActivity extends CordovaPlugin implements edu.cmu.pocketsphinx
   private String KEYPHRASE = "computer";
   private String stateInitial = "initial";
   private String stateStart= "start";
+  private String stateStop= "stop";
   private static SpeechRecognizer recognizer;
 
 
@@ -47,6 +48,12 @@ public class VoiceActivity extends CordovaPlugin implements edu.cmu.pocketsphinx
         }else if(args.getString(0).equals(stateStart)){
           Toast.makeText(cordova.getActivity(), "stateStart",Toast.LENGTH_SHORT).show();
           switchSearch(KWS_SEARCH);
+        }
+        else if(args.getString(0).equals(stateStop)){
+            if (recognizer != null) {
+              recognizer.stop();
+            }
+            currentCallbackContext.success("stop");
         }
 			return true;
 		}
