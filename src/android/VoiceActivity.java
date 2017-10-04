@@ -34,6 +34,7 @@ public class VoiceActivity extends CordovaPlugin implements edu.cmu.pocketsphinx
   private String stateInitial = "initial";
   private String stateStart= "start";
   private String stateStop= "stop";
+  private String stateLeave= "leave";
   private static SpeechRecognizer recognizer;
 
 
@@ -43,10 +44,10 @@ public class VoiceActivity extends CordovaPlugin implements edu.cmu.pocketsphinx
     currentCallbackContext = callbackContext;
 		if ("process".equals(action)) {
         if(args.getString(0).equals(stateInitial)){
-          Toast.makeText(cordova.getActivity(), "stateInitial",Toast.LENGTH_SHORT).show();
+          // Toast.makeText(cordova.getActivity(), "stateInitial",Toast.LENGTH_SHORT).show();
           runRecognizerSetup();
         }else if(args.getString(0).equals(stateStart)){
-          Toast.makeText(cordova.getActivity(), "stateStart",Toast.LENGTH_SHORT).show();
+          // Toast.makeText(cordova.getActivity(), "stateStart",Toast.LENGTH_SHORT).show();
           switchSearch(KWS_SEARCH);
         }
         else if(args.getString(0).equals(stateStop)){
@@ -54,6 +55,11 @@ public class VoiceActivity extends CordovaPlugin implements edu.cmu.pocketsphinx
               recognizer.stop();
             }
             currentCallbackContext.success("stop");
+        }
+         else if(args.getString(0).equals(stateLeave)){
+            if (recognizer != null) {
+              recognizer.stop();
+            }
         }
 			return true;
 		}
@@ -98,7 +104,8 @@ public class VoiceActivity extends CordovaPlugin implements edu.cmu.pocketsphinx
       protected void onPostExecute(Exception result) {
         if (result != null) {
         } else {
-          switchSearch(KWS_SEARCH);
+          currentCallbackContext.success("success to initial voice dectector");
+          //switchSearch(KWS_SEARCH);
         }
       }
     }.execute();
@@ -150,7 +157,7 @@ public class VoiceActivity extends CordovaPlugin implements edu.cmu.pocketsphinx
   public void onResult(Hypothesis hypothesis) {
     if (hypothesis != null) {
       recognizer.stop();
-      Toast.makeText(cordova.getActivity(), "result-->"+hypothesis.getHypstr(),Toast.LENGTH_SHORT).show();
+      // Toast.makeText(cordova.getActivity(), "result-->"+hypothesis.getHypstr(),Toast.LENGTH_SHORT).show();
       String text = hypothesis.getHypstr();
       currentCallbackContext.success(text);
     }
